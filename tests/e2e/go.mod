@@ -1,4 +1,4 @@
-module github.com/cosmos/gaia/v8/tests/e2e
+module github.com/cosmos/gaia/v9/tests/e2e
 
 go 1.18
 

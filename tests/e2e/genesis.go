@@ -16,8 +16,7 @@ import (
 	govtypes "github.com/cosmos/cosmos-sdk/x/gov/types"
 	govv1beta1 "github.com/cosmos/cosmos-sdk/x/gov/types/v1beta1"
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	globfeetypes "github.com/cosmos/gaia/v8/x/globalfee/types"
-	icatypes "github.com/cosmos/ibc-go/v5/modules/apps/27-interchain-accounts/types"
+	//icatypes "github.com/cosmos/ibc-go/v5/modules/apps/27-interchain-accounts/types"
 	tmtypes "github.com/tendermint/tendermint/types"
 )
 
@@ -114,59 +113,59 @@ func modifyGenesis(path, moniker, amountStr string, addrAll []sdk.AccAddress, gl
 	appState[banktypes.ModuleName] = bankGenStateBz
 
 	// add ica host allowed msg types
-	var icaGenesisState icatypes.GenesisState
+	//var icaGenesisState icatypes.GenesisState
 
-	if appState[icatypes.ModuleName] != nil {
-		cdc.MustUnmarshalJSON(appState[icatypes.ModuleName], &icaGenesisState)
-	}
-
-	icaGenesisState.HostGenesisState.Params.AllowMessages = []string{
-		"/cosmos.authz.v1beta1.MsgExec",
-		"/cosmos.authz.v1beta1.MsgGrant",
-		"/cosmos.authz.v1beta1.MsgRevoke",
-		"/cosmos.bank.v1beta1.MsgSend",
-		"/cosmos.bank.v1beta1.MsgMultiSend",
-		"/cosmos.distribution.v1beta1.MsgSetWithdrawAddress",
-		"/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
-		"/cosmos.distribution.v1beta1.MsgFundCommunityPool",
-		"/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
-		"/cosmos.feegrant.v1beta1.MsgGrantAllowance",
-		"/cosmos.feegrant.v1beta1.MsgRevokeAllowance",
-		"/cosmos.gov.v1beta1.MsgVoteWeighted",
-		"/cosmos.gov.v1beta1.MsgSubmitProposal",
-		"/cosmos.gov.v1beta1.MsgDeposit",
-		"/cosmos.gov.v1beta1.MsgVote",
-		"/cosmos.staking.v1beta1.MsgEditValidator",
-		"/cosmos.staking.v1beta1.MsgDelegate",
-		"/cosmos.staking.v1beta1.MsgUndelegate",
-		"/cosmos.staking.v1beta1.MsgBeginRedelegate",
-		"/cosmos.staking.v1beta1.MsgCreateValidator",
-		"/cosmos.vesting.v1beta1.MsgCreateVestingAccount",
-		"/ibc.applications.transfer.v1.MsgTransfer",
-		"/tendermint.liquidity.v1beta1.MsgCreatePool",
-		"/tendermint.liquidity.v1beta1.MsgSwapWithinBatch",
-		"/tendermint.liquidity.v1beta1.MsgDepositWithinBatch",
-		"/tendermint.liquidity.v1beta1.MsgWithdrawWithinBatch",
-	}
-
-	icaGenesisStateBz, err := cdc.MarshalJSON(&icaGenesisState)
-	if err != nil {
-		return fmt.Errorf("failed to marshal interchain accounts genesis state: %w", err)
-	}
-	appState[icatypes.ModuleName] = icaGenesisStateBz
+	//if appState[icatypes.ModuleName] != nil {
+	//	cdc.MustUnmarshalJSON(appState[icatypes.ModuleName], &icaGenesisState)
+	//}
+	//
+	//icaGenesisState.HostGenesisState.Params.AllowMessages = []string{
+	//	"/cosmos.authz.v1beta1.MsgExec",
+	//	"/cosmos.authz.v1beta1.MsgGrant",
+	//	"/cosmos.authz.v1beta1.MsgRevoke",
+	//	"/cosmos.bank.v1beta1.MsgSend",
+	//	"/cosmos.bank.v1beta1.MsgMultiSend",
+	//	"/cosmos.distribution.v1beta1.MsgSetWithdrawAddress",
+	//	"/cosmos.distribution.v1beta1.MsgWithdrawValidatorCommission",
+	//	"/cosmos.distribution.v1beta1.MsgFundCommunityPool",
+	//	"/cosmos.distribution.v1beta1.MsgWithdrawDelegatorReward",
+	//	"/cosmos.feegrant.v1beta1.MsgGrantAllowance",
+	//	"/cosmos.feegrant.v1beta1.MsgRevokeAllowance",
+	//	"/cosmos.gov.v1beta1.MsgVoteWeighted",
+	//	"/cosmos.gov.v1beta1.MsgSubmitProposal",
+	//	"/cosmos.gov.v1beta1.MsgDeposit",
+	//	"/cosmos.gov.v1beta1.MsgVote",
+	//	"/cosmos.staking.v1beta1.MsgEditValidator",
+	//	"/cosmos.staking.v1beta1.MsgDelegate",
+	//	"/cosmos.staking.v1beta1.MsgUndelegate",
+	//	"/cosmos.staking.v1beta1.MsgBeginRedelegate",
+	//	"/cosmos.staking.v1beta1.MsgCreateValidator",
+	//	"/cosmos.vesting.v1beta1.MsgCreateVestingAccount",
+	//"/ibc.applications.transfer.v1.MsgTransfer",
+	//"/tendermint.liquidity.v1beta1.MsgCreatePool",
+	//"/tendermint.liquidity.v1beta1.MsgSwapWithinBatch",
+	//"/tendermint.liquidity.v1beta1.MsgDepositWithinBatch",
+	//"/tendermint.liquidity.v1beta1.MsgWithdrawWithinBatch",
+	//}
+	//
+	//icaGenesisStateBz, err := cdc.MarshalJSON(&icaGenesisState)
+	//if err != nil {
+	//	return fmt.Errorf("failed to marshal interchain accounts genesis state: %w", err)
+	//}
+	//appState[icatypes.ModuleName] = icaGenesisStateBz
 
 	// setup global fee in genesis
-	globfeeState := globfeetypes.GetGenesisStateFromAppState(cdc, appState)
-	minGases, err := sdk.ParseDecCoins(globfees)
-	if err != nil {
-		return fmt.Errorf("failed to parse fee coins: %w", err)
-	}
-	globfeeState.Params.MinimumGasPrices = minGases
-	globFeeStateBz, err := cdc.MarshalJSON(globfeeState)
-	if err != nil {
-		return fmt.Errorf("failed to marshal global fee genesis state: %w", err)
-	}
-	appState[globfeetypes.ModuleName] = globFeeStateBz
+	//globfeeState := globfeetypes.GetGenesisStateFromAppState(cdc, appState)
+	//minGases, err := sdk.ParseDecCoins(globfees)
+	//if err != nil {
+	//	return fmt.Errorf("failed to parse fee coins: %w", err)
+	//}
+	//globfeeState.Params.MinimumGasPrices = minGases
+	//globFeeStateBz, err := cdc.MarshalJSON(globfeeState)
+	//if err != nil {
+	//	return fmt.Errorf("failed to marshal global fee genesis state: %w", err)
+	//}
+	//appState[globfeetypes.ModuleName] = globFeeStateBz
 
 	stakingGenState := stakingtypes.GetGenesisStateFromAppState(cdc, appState)
 	stakingGenState.Params.BondDenom = denom

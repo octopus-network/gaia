@@ -1,12 +1,5 @@
 package v7
 
-import (
-	store "github.com/cosmos/cosmos-sdk/store/types"
-	icahosttypes "github.com/cosmos/ibc-go/v5/modules/apps/27-interchain-accounts/host/types"
-
-	"github.com/cosmos/gaia/v8/app/upgrades"
-)
-
 const (
 	// UpgradeName defines the on-chain upgrade name.
 	UpgradeName = "v7-Theta"
@@ -34,16 +27,17 @@ const (
 	stakingMsgCreateValidator           = "/cosmos.staking.v1beta1.MsgCreateValidator"
 	vestingMsgCreateVestingAccount      = "/cosmos.vesting.v1beta1.MsgCreateVestingAccount"
 	ibcMsgTransfer                      = "/ibc.applications.transfer.v1.MsgTransfer"
-	liquidityMsgSwapWithinBatch         = "/tendermint.liquidity.v1beta1.MsgSwapWithinBatch" //#nosec G101 -- This is a false positive
-	liquidityMsgCreatePool              = "/tendermint.liquidity.v1beta1.MsgCreatePool"
-	liquidityMsgDepositWithinBatch      = "/tendermint.liquidity.v1beta1.MsgDepositWithinBatch"
-	liquidityMsgWithdrawWithinBatch     = "/tendermint.liquidity.v1beta1.MsgWithdrawWithinBatch"
+	//liquidityMsgSwapWithinBatch         = "/tendermint.liquidity.v1beta1.MsgSwapWithinBatch" //#nosec G101 -- This is a false positive
+	//liquidityMsgCreatePool              = "/tendermint.liquidity.v1beta1.MsgCreatePool"
+	//liquidityMsgDepositWithinBatch      = "/tendermint.liquidity.v1beta1.MsgDepositWithinBatch"
+	//liquidityMsgWithdrawWithinBatch     = "/tendermint.liquidity.v1beta1.MsgWithdrawWithinBatch"
 )
 
-var Upgrade = upgrades.Upgrade{
-	UpgradeName:          UpgradeName,
-	CreateUpgradeHandler: CreateUpgradeHandler,
-	StoreUpgrades: store.StoreUpgrades{
-		Added: []string{icahosttypes.StoreKey},
-	},
-}
+//
+//var Upgrade = upgrades.Upgrade{
+//	UpgradeName:          UpgradeName,
+//	CreateUpgradeHandler: CreateUpgradeHandler,
+//	StoreUpgrades:        store.StoreUpgrades{
+//		//Added: []string{icahosttypes.StoreKey},
+//	},
+//}

@@ -22,7 +22,7 @@ import (
 	stakingtypes "github.com/cosmos/cosmos-sdk/x/staking/types"
 	"github.com/ory/dockertest/v3/docker"
 
-	icamauth "github.com/cosmos/gaia/v8/x/icamauth/types"
+	icamauth "github.com/cosmos/gaia/v9/x/icamauth/types"
 )
 
 const (
