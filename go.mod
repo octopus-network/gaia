@@ -319,8 +319,6 @@ replace github.com/vedhavyas/go-subkey => github.com/vedhavyas/go-subkey v1.0.2
 
 replace github.com/ChainSafe/go-schnorrkel => github.com/ChainSafe/go-schnorrkel v0.0.0-20200405005733-88cbf1b4c40d
 
-// github.com/cosmos/ibc-go/v3  => github.com/octopus-network/ibc-go feat/ics10-grandpa
-// replace github.com/cosmos/ibc-go/v3 => github.com/octopus-network/ibc-go latest
 replace github.com/cosmos/ibc-go/v3 v3.4.0 => github.com/octopus-network/ibc-go/v3 v3.4.0-ics10.2
 
 // for dev
