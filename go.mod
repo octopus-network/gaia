@@ -212,7 +212,7 @@ require (
 	github.com/nbutton23/zxcvbn-go v0.0.0-20210217022336-fa2cb2858354 // indirect
 	github.com/nishanths/exhaustive v0.8.3 // indirect
 	github.com/nishanths/predeclared v0.2.2 // indirect
-	github.com/octopus-network/beefy-go v0.2.0 // indirect
+	github.com/octopus-network/beefy-go v0.3.0 // indirect
 	github.com/octopus-network/trie-go v0.1.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.5 // indirect
 	github.com/pelletier/go-toml v1.9.5 // indirect
@@ -317,4 +317,4 @@ replace github.com/vedhavyas/go-subkey => github.com/vedhavyas/go-subkey v1.0.2
 
 replace github.com/ChainSafe/go-schnorrkel => github.com/ChainSafe/go-schnorrkel v0.0.0-20200405005733-88cbf1b4c40d
 
-replace github.com/cosmos/ibc-go/v5 => github.com/octopus-network/ibc-go/v5 v5.0.1-ics10.2
+replace github.com/cosmos/ibc-go/v5 => github.com/octopus-network/ibc-go/v5 v5.0.1-ics10.3
