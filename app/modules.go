@@ -48,6 +48,7 @@ import (
 	ibcclientclient "github.com/cosmos/ibc-go/v7/modules/core/02-client/client"
 	ibcexported "github.com/cosmos/ibc-go/v7/modules/core/exported"
 	ibctm "github.com/cosmos/ibc-go/v7/modules/light-clients/07-tendermint"
+	ibcsm "github.com/cosmos/ibc-go/v7/modules/light-clients/06-solomachine"
 	icsprovider "github.com/cosmos/interchain-security/v3/x/ccv/provider"
 	icsproviderclient "github.com/cosmos/interchain-security/v3/x/ccv/provider/client"
 	providertypes "github.com/cosmos/interchain-security/v3/x/ccv/provider/types"
@@ -102,6 +103,7 @@ var ModuleBasics = module.NewBasicManager(
 	authzmodule.AppModuleBasic{},
 	ibc.AppModuleBasic{},
 	ibctm.AppModuleBasic{},
+	ibcsm.AppModuleBasic{},
 	upgrade.AppModuleBasic{},
 	evidence.AppModuleBasic{},
 	transfer.AppModuleBasic{},
